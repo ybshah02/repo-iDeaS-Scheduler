@@ -1,0 +1,33 @@
+<app-dashboard></app-dashboard>
+
+<main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" role="main">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Regions</h1>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Region</th>
+        <th scope="col">Timezone</th>
+        <th scope="col">
+          <button (click)="toggleAddComponent()" class="btn btn-light btn-sm">Create New</button>
+        </th>
+      </tr></thead>
+      <tbody>
+      <tr *ngFor="let region of regions">
+        <td>{{ region.regionName }}</td>
+        <td>{{ region.timezone }}</td>
+        <td>
+          <button (click)="toggleEditComponent(region.id)" class="btn btn-dark btn-sm">Edit</button>
+          <button (click)="onDelete(region.id)" class="btn btn-danger btn-sm">Delete</button>
+          <button class="btn btn-info btn-sm">Login</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <app-region-form *ngIf="showAddComponent"></app-region-form>
+    <app-region-modify-form *ngIf="showEditComponent" [id]="regionToEdit"></app-region-modify-form>
+  </div>
+</main>
