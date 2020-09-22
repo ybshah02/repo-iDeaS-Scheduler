@@ -1,0 +1,6 @@
+flyway.user=root
+flyway.password=#Ybs123102
+flyway.schemas=schedulerdb
+flyway.url=jdbc:h2:mem:mysql://localhost:3306/schedulerdb
+flyway.locations=filesystem:db/migration
+serverTimezone=America/Chicago
