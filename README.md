@@ -1,9 +1,27 @@
-# repo-iDeaS-Scheduler
+# Angulerclient
 
-Description ---
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
 
-Trainer Booking application for 2020 summer internship at iDeaS --- This application serves to create a front-end based application to display bookings of iDeaS’s resources who train clients on their products. The main functionality of this application is that it is needed to connect to the various timezones and adhere to constraints such as travel time, and such as iDeaS serves clients from throughout the world. 
+## Development server
 
-Configuration instructions --- 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-The program stack of this application includes a Spring Boot compiler, Angular frontend, and a Java 8 backend. The installation of these softwares and configuration in the datasource config file with a connection to a sql database will be required to run the application. 
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
