@@ -1,0 +1,43 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="client.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter Client Name"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Client name is required</div>
+
+      <div class="form-group">
+        <label for="regionId">Region</label>
+        <select class="form-control" [(ngModel)]="client.regionId"
+                id="regionId"
+                name="regionId"
+                placeholder="Select Region"
+                required #regionId="ngModel">
+          <option *ngFor="let region of regions"
+                  value="{{region.id}}">{{region.regionName}}</option>
+        </select>
+      </div>
+      <div [hidden]="!regionId.pristine" class="alert alert-danger">Client name is required</div>
+
+      <div class="form-group">
+        <label for="code">Account Code</label>
+        <input type="text" [(ngModel)]="client.code"
+               class="form-control"
+               id="code"
+               name="code"
+               placeholder="Enter Client Account Code"
+               required #code="ngModel">
+      </div>
+      <div [hidden]="!code.pristine" class="alert alert-danger">Client name is required</div>
+
+      <button type="submit" [disabled]="!clientForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

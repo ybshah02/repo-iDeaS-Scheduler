@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Modify Learning Session: {{ getName(id) }}</h1>
+</div>
+
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(id)" #lsForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="learningSession.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Modify Learning Session Name">
+      </div>
+
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" [(ngModel)]="learningSession.duration"
+               class="form-control"
+               id="duration"
+               name="duration"
+               placeholder="Modify Learning Session Duration ">
+      </div>
+      <div class="form-group">
+        <label for="durationPre">Pre-Duration</label>
+        <input type="text" [(ngModel)]="learningSession.preDuration"
+               class="form-control"
+               id="durationPre"
+               name="durationPre"
+               placeholder="Modify Learning Session Pre-Duration ">
+      </div>
+      <div class="form-group">
+        <label for="durationPost">Post-Duration</label>
+        <input type="text" [(ngModel)]="learningSession.postDuration"
+               class="form-control"
+               id="durationPost"
+               name="durationPost"
+               placeholder="Modify Learning Session Post-Duration ">
+      </div>
+      <button type="submit" [disabled]="!lsForm.form.valid"
+              class="btn btn-success">Submit</button>
+      <button type="button" class="btn btn-danger" (click)="reloadPage()">Cancel</button>
+    </form>
+  </div>
+</div>

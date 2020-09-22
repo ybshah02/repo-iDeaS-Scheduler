@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Modify Region: {{ getName(id) }}</h1>
+</div>
+
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(id)" #regionForm="ngForm">
+      <div class="form-group">
+        <label for="region">Region</label>
+        <input type="text" [(ngModel)]="newRegion.regionName"
+               class="form-control"
+               id="region"
+               name="region"
+               placeholder="Modify Region Name">
+      </div>
+      <div class="form-group">
+        <label for="timezone">Timezone</label>
+        <select class="form-control" [(ngModel)]="newRegion.timezone"
+                id="timezone"
+                name="timezone"
+                placeholder="Select Timezone">
+          <option>UTC-6</option>
+          <option>UTC+0</option>
+          <option>UTC+1</option>
+          <option>UTC+5:30</option>
+          <option>UTC+8</option>
+          <option>UTC+10</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="!regionForm.form.valid"
+              class="btn btn-success">Submit</button>
+      <button type="button" class="btn btn-danger" (click)="reloadPage()">Cancel</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<app-dashboard></app-dashboard>
+
+<main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" role="main">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Resources</h1>
+  </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Region</th>
+        <th scope="col">Language(s)</th>
+        <th><button class="btn btn-light btn-sm" (click)="toggleAddComponent()">Create New</button></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let resource of resources">
+        <td>{{ resource.firstName }}</td>
+        <td>{{ resource.lastName }}</td>
+        <td>{{ resource.email }}</td>
+        <td>{{ getRegion(resource.regionId) }}</td>
+        <td>{{ getLanguageOfResource(resource.id)}}</td>
+        <td>
+          <button class="btn btn-dark btn-sm" (click)="toggleEditComponent(resource.id)">Edit</button>
+          <button class="btn btn-info btn-sm" (click)="toggleCapabilitiesComponent(resource.id)">Capabilities</button>
+          <button class="btn btn-success btn-sm" (click)="toggleActivationComponent(resource.id)" *ngIf="isNotActivated(resource)">Activate</button>
+          <button class="btn btn-warning btn-sm" (click)="disableResource(resource)" *ngIf="isActivated(resource)">Disable</button>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(resource.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <app-resources-form *ngIf="showAddComponent"></app-resources-form>
+    <app-resources-modify-form *ngIf="showEditComponent" [id]="resourceToEdit"></app-resources-modify-form>
+    <app-capabilities-display *ngIf="showCapabilitiesComponent" [id]="resourceCapabilitiesToDisplay"></app-capabilities-display>
+    <app-activate-resource-form *ngIf="showActivationComponent" [id]="resourceToActivate"></app-activate-resource-form>
+</main>

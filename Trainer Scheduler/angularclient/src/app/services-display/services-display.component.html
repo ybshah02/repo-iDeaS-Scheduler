@@ -1,0 +1,77 @@
+<app-dashboard></app-dashboard>
+
+<main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" role="main">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Services</h1>
+  </div>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Learning Groups</h2>
+  </div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Code</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">
+      <button (click)="toggleLGAddComponent()" class="btn btn-light btn-sm">Create New</button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let lg of this.learningGroups">
+    <td>{{ lg.code }}</td>
+    <td>{{ lg.name }}</td>
+    <td>{{ lg.description }}</td>
+    <td>
+      <button (click)="toggleLGEditComponent(lg.id)" class="btn btn-dark btn-sm">Edit</button>
+      <button (click)="onDeleteLG(lg.id)" class="btn btn-danger btn-sm">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <app-lg-form *ngIf="showLGAddComponent"></app-lg-form>
+  <app-lg-modify-form *ngIf="showLGEditComponent" [id]="lgToEdit"></app-lg-modify-form>
+</div>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Learning Sessions</h2>
+  </div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Code</th>
+    <th scope="col">Name</th>
+    <th scope="col">Learning Group</th>
+    <th scope="col">Duration</th>
+    <th scope="col">Pre-Duration</th>
+    <th scope="col">Pro-Duration</th>
+    <th scope="col">
+      <button (click)="toggleLSAddComponent()" class="btn btn-light btn-sm">Create New</button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ls of learningSessions">
+    <td>{{ ls.code }}</td>
+    <td>{{ ls.name }}</td>
+    <td>{{ getLearningGroup(ls.learningGroupId) }}</td>
+    <td>{{ ls.duration }}</td>
+    <td>{{ ls.preDuration }}</td>
+    <td>{{ ls.postDuration }}</td>
+    <td>
+      <button (click)="toggleLSEditComponent(ls.id)" class="btn btn-dark btn-sm">Edit</button>
+      <button (click)="onDeleteLS(ls.id)" class="btn btn-danger btn-sm">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <app-ls-form *ngIf="showLSAddComponent"></app-ls-form>
+  <app-ls-modify-form *ngIf="showLSEditComponent" [id]="lsToEdit"></app-ls-modify-form>
+</div>
+</main>
