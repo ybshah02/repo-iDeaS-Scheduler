@@ -18,7 +18,7 @@ public class DataSourceConfig {
         dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
         dataSourceBuilder.url("jdbc:mysql://localhost:3306/schedulerdb");
         dataSourceBuilder.username("root");
-        dataSourceBuilder.password("#Ybs123102");
+        dataSourceBuilder.password("--------");
         return dataSourceBuilder.build();
     }
 
