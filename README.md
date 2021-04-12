@@ -1,4 +1,12 @@
 # repo-iDeaS-Scheduler
-Trainer Booking application for 2020 summer internship at iDeaS --- This application serves to create a front-end based application to display bookings of iDeaS’s resources who train clients on their products. The main functionality of this application is that it is needed to connect to the various timezones and adhere to constraints such as travel time, and such as iDeaS serves clients from throughout the world. 
 
-Full Stack includes Spring Boot, Angular frontend, and Java 8 backend.
+Booking application for iDeaS' product trainers. The application serves to display schedules of trainers and clients on a cohesively-designed web application and incorporate functionalities to book, edit, and remove, appointments between trainers and clients to facilitate coordination on training appointments with respect to various timezones, travel time, and such. 
+
+The vast majority of this work is to create backend RestAPI functionalities to be able to create trainers and clients, and then upload their information to the server to track and create bookings. 
+
+Dependencies:
+-Java 8
+-Angular JS
+-MySQL
+-Spring Boot
+-HTML/CSS 
